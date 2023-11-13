@@ -2,14 +2,15 @@
 
 namespace App\Controller\Admin;
 
+use Cocur\Slugify\Slugify;
 use App\Entity\Technologies;
 use App\Form\TechnologiesType;
-use App\Repository\TechnologiesRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\TechnologiesRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/technologies')]
 class TechnologiesController extends AbstractController
@@ -30,6 +31,15 @@ class TechnologiesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $name = $technology->getNom();
+            $slugify = new Slugify();
+            $slug = $slugify->slugify($name);
+            $technology->setSlug($slug);
+
+
+
             $entityManager->persist($technology);
             $entityManager->flush();
 

@@ -6,6 +6,7 @@ use App\Entity\Technologies;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class TechnologiesType extends AbstractType
 {
@@ -17,11 +18,23 @@ class TechnologiesType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Nom de la technologie'
                 ],
-                // "constraints" => [
-                    
-                // ]
+                "constraints" => [
+                    new NotBlank([
+                        "message" => "Veuillez saisir une technologie"
+                    ])
+                ]
             ])
-
+            ->add('logo', FileType::class, [
+                'label' => 'Logo de la technologie',
+                'attr' => [
+                    'placeholder' => 'Logo de la technologie'
+                ],
+                "constraints" => [
+                    new NotBlank([
+                        "message" => "Veuillez saisir un logo"
+                    ])
+                ]
+            ])
         ;
     }
 

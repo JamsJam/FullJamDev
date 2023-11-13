@@ -4,12 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Entity\Projet;
 use App\Form\ProjetType;
+use Cocur\Slugify\Slugify;
 use App\Repository\ProjetRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/projet')]
 class ProjetController extends AbstractController
@@ -30,6 +31,14 @@ class ProjetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $name = $projet->getTitre();
+            $slugify = new Slugify();
+            $slug = $slugify->slugify($name);
+            $projet->setSlug($slug);
+
+
             $entityManager->persist($projet);
             $entityManager->flush();
 

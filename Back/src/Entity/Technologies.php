@@ -24,6 +24,9 @@ class Technologies
     #[ORM\ManyToMany(targetEntity: Projet::class, mappedBy: 'technologies')]
     private Collection $projets;
 
+    #[ORM\Column(length: 255)]
+    private ?string $logo = null;
+
     public function __construct()
     {
         $this->projets = new ArrayCollection();
@@ -81,6 +84,18 @@ class Technologies
         if ($this->projets->removeElement($projet)) {
             $projet->removeTechnology($this);
         }
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(string $logo): static
+    {
+        $this->logo = $logo;
 
         return $this;
     }
