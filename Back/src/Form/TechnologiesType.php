@@ -12,9 +12,16 @@ class TechnologiesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('slug')
-            ->add('projets')
+            ->add('nom', TextType::class, [
+                'label' => 'Nom de la technologie',
+                'attr' => [
+                    'placeholder' => 'Nom de la technologie'
+                ],
+                // "constraints" => [
+                    
+                // ]
+            ])
+
         ;
     }
 

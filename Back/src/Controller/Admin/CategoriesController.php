@@ -3,13 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Categories;
+use Cocur\Slugify\Slugify;
 use App\Form\CategoriesType;
 use App\Repository\CategoriesRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/categories')]
 class CategoriesController extends AbstractController
@@ -30,6 +31,15 @@ class CategoriesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            
+            //? Dynamically create slug from category name
+            $name = $category->getNom();
+            $slugify = new Slugify();
+            $slug = $slugify->slugify($name);
+            $category->setSlug($slug);
+
+
             $entityManager->persist($category);
             $entityManager->flush();
 
