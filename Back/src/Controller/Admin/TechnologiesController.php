@@ -7,10 +7,12 @@ use App\Entity\Technologies;
 use App\Form\TechnologiesType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TechnologiesRepository;
+use App\Service\ImageUploader;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 #[Route('/admin/technologies')]
 class TechnologiesController extends AbstractController
@@ -24,7 +26,7 @@ class TechnologiesController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_technologies_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, ImageUploader $uploaderService): Response
     {
         $technology = new Technologies();
         $form = $this->createForm(TechnologiesType::class, $technology);
@@ -32,17 +34,51 @@ class TechnologiesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-
+            //! ===========================
+            //?  setting up the slug
+            //! ===========================
+            
             $name = $technology->getNom();
             $slugify = new Slugify();
             $slug = $slugify->slugify($name);
             $technology->setSlug($slug);
+            
+            //! ===========================
+            
+
+            //! ===========================
+            //?  setting logo file's name
+            //! ===========================
+
+            $logo = $form->get('logo')->getData();
+            $safeLogoName = $uploaderService->uploadLogo($logo, $technology);
+
+            $uploaderService->moveFile($logo, $safeLogoName, "logo");
+            
+            try{
+                $logo -> move(
+                    $this->getParameter('assetsParameter'),
+                    $safeLogoName
+                );
+            } catch(FileException $e){
+                throw new FileException("Something went wrong", 1);
+                
+            }
+
+            $technology->setLogo($safeLogoName);
+
+            //! ===========================
 
 
-
+            //! ===========================
+            //?         Persist & Flush
+            //! ===========================
+            
             $entityManager->persist($technology);
             $entityManager->flush();
 
+            //! ===========================
+            
             return $this->redirectToRoute('app_admin_technologies_index', [], Response::HTTP_SEE_OTHER);
         }
 

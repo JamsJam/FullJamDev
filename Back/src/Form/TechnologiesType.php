@@ -29,6 +29,8 @@ class TechnologiesType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Logo de la technologie'
                 ],
+                "required" => false,
+                "mapped" => false,
                 "constraints" => [
                     new NotBlank([
                         "message" => "Veuillez saisir un logo"

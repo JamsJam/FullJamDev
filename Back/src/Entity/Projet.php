@@ -2,13 +2,27 @@
 
 namespace App\Entity;
 
-use App\Repository\ProjetRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\Get;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProjetRepository;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: ProjetRepository::class)]
+#[ApiResource(
+    new GetCollection(
+        uriTemplate: "/search"
+    ),
+    new GetCollection(
+        uriTemplate: "/highlight"
+    ),
+    new GetCollection(),
+    new Get(),
+
+)]
 class Projet
 {
     #[ORM\Id]

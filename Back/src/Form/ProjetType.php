@@ -62,23 +62,100 @@ class ProjetType extends AbstractType
                     "placeholder" => "Lien Github du projet"
                 ]
             ])
-            ->add('images', FileType::class,[
-                "label" => "Images du projet",
+            //? Add multiple fileType for all the needed images size
+
+            // ->add('images', FileType::class,[
+            //     "label" => "Images du projet",
+            //     "attr" => [
+            //         "placeholder" => "Images du projet"
+            //     ]
+            // ])
+
+            ->add('banner',FileType::class,[
+                "required" => false,
+                "mapped" => false,
+                "label" => "Banniere du projet",
                 "attr" => [
-                    "placeholder" => "Images du projet"
+                    "placeholder" => "Banniere du projet"
                 ]
             ])
+
+            ->add('card',FileType::class,[
+                "required" => false,
+                "mapped" => false,
+                "label" => "image pour la carte projet",
+                "attr" => [
+                    "placeholder" => "image pour la carte projet"
+                ]
+            ])
+
+            ->add('slider1',FileType::class,[
+                "required" => false,
+                "mapped" => false,
+                "label" => "1er images des sliders et mise en avant",
+                "attr" => [
+                    "placeholder" => "1er images des sliders et mise en avant"
+                ]
+            ])
+
+            ->add('miniature1',FileType::class,[
+                "required" => false,
+                "mapped" => false,
+                "label" => "Miniature de la 1er image",
+                "attr" => [
+                    "placeholder" => "Miniature de la 1er image"
+                ]
+            ])
+
+            ->add('slider2',FileType::class,[
+                "required" => false,
+                "mapped" => false,
+                "label" => "2e images des sliders",
+                "attr" => [
+                    "placeholder" => "2e images des sliders"
+                ]
+            ])
+
+            ->add('miniature2',FileType::class,[
+                "required" => false,
+                "mapped" => false,
+                "label" => "Miniature de la 2e image",
+                "attr" => [
+                    "placeholder" => "Miniature de la 2e image"
+                ]
+            ])
+
+            ->add('slider3',FileType::class,[
+                "required" => false,
+                "mapped" => false,
+                "label" => "3e images des sliders ",
+                "attr" => [
+                    "placeholder" => "3e images des sliders "
+                ]
+            ])
+
+            ->add('miniature3',FileType::class,[
+                "required" => false,
+                "mapped" => false,
+                "label" => "Miniature de la 3e image",
+                "attr" => [
+                    "placeholder" => "Miniature de la 3e image"
+                ]
+            ])
+
             ->add('categorie', EntityType::class,[
                 "class" => Categories::class,
                 "choice_label" => "nom",
                 "label" => "Catégorie du projet",
                 "multiple" => false,
-                "expanded" => false,
+                "expanded" => true,
             ])
             ->add('technologies',EntityType::class,[
                 "class" => Technologies::class,
                 "choice_label" => "nom",
                 "label" => "Technologies du projet",
+                "multiple" => true,
+                "expanded" => true
             ])
         ;
     }
