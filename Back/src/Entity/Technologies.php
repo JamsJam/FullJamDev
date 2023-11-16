@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\TechnologiesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TechnologiesRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: TechnologiesRepository::class)]
 class Technologies
@@ -16,16 +17,23 @@ class Technologies
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get:collection:card', 'get:item:project'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get:collection:card', 'get:item:project'])]
     private ?string $slug = null;
 
     #[ORM\ManyToMany(targetEntity: Projet::class, mappedBy: 'technologies')]
     private Collection $projets;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get:item:project'])]
     private ?string $logo = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['get:collection:card'])]
+    private ?string $logoPath = null;
 
     public function __construct()
     {
@@ -96,6 +104,18 @@ class Technologies
     public function setLogo(string $logo): static
     {
         $this->logo = $logo;
+
+        return $this;
+    }
+
+    public function getLogoPath(): ?string
+    {
+        return $this->logoPath;
+    }
+
+    public function setLogoPath(string $logoPath): static
+    {
+        $this->logoPath = $logoPath;
 
         return $this;
     }

@@ -55,17 +55,9 @@ class TechnologiesController extends AbstractController
 
             $uploaderService->moveFile($logo, $safeLogoName, "logo");
             
-            try{
-                $logo -> move(
-                    $this->getParameter('assetsParameter'),
-                    $safeLogoName
-                );
-            } catch(FileException $e){
-                throw new FileException("Something went wrong", 1);
-                
-            }
-
+            
             $technology->setLogo($safeLogoName);
+            $technology->setLogoPath($this->getParameter('assetsParameter').'/'.$safeLogoName);
 
             //! ===========================
 

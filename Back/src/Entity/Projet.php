@@ -2,58 +2,86 @@
 
 namespace App\Entity;
 
+
 use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Link;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiFilter;
 use App\Repository\ProjetRepository;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Doctrine\Orm\Filter\BooleanFilter;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ProjetRepository::class)]
-#[ApiResource(
+#[ApiResource(operations:[
     new GetCollection(
-        uriTemplate: "/search"
+        uriTemplate: "/get-project-list/",
+        paginationMaximumItemsPerPage: 6,
+        normalizationContext: [
+            'groups' => 'get:collection:card'
+        ]
     ),
-    new GetCollection(
-        uriTemplate: "/highlight"
-    ),
-    new GetCollection(),
-    new Get(),
+    // new GetCollection(),
 
-)]
+    new Get(
+        uriTemplate: "/get-this-project/{id}/",
+        normalizationContext:[
+            'groups' => 'get:item:project'
+        ]
+    ),
+
+
+
+])]
 class Projet
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['get:collection:card'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get:collection:card', 'get:item:project'])]
     private ?string $titre = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get:collection:card', 'get:item:project'])]
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['get:item:project'])]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get:item:project'])]
     private ?string $lien = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['get:item:project'])]
     private ?string $github = null;
 
     #[ORM\Column]
+    #[Groups(['get:collection:card', 'get:item:project'])]
     private array $images = [];
 
     #[ORM\ManyToOne(inversedBy: 'projets')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['get:collection:card', 'get:item:project'])]
     private ?Categories $categorie = null;
 
     #[ORM\ManyToMany(targetEntity: Technologies::class, inversedBy: 'projets')]
+    #[Groups(['get:collection:card', 'get:item:project'])]
     private Collection $technologies;
+
+    #[ORM\Column]
+    #[Groups(['get:collection:card'])]
+    private ?bool $isHighlighted = null;
 
     public function __construct()
     {
@@ -169,6 +197,18 @@ class Projet
     public function removeTechnology(Technologies $technology): static
     {
         $this->technologies->removeElement($technology);
+
+        return $this;
+    }
+
+    public function isIsHighlighted(): ?bool
+    {
+        return $this->isHighlighted;
+    }
+
+    public function setIsHighlighted(bool $isHighlighted): static
+    {
+        $this->isHighlighted = $isHighlighted;
 
         return $this;
     }

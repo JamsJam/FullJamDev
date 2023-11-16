@@ -106,7 +106,7 @@ class ProjetController extends AbstractController
 
             
             $projet->setImages($imageTable);
-            
+            $projet->setIsHighlighted(true);
 
             $entityManager->persist($projet);
             $entityManager->flush();

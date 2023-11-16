@@ -23,7 +23,7 @@ class ImageUploader
 
     public function __construct(
         private string $targetDirectory,
-        private Slugify $slugify
+        
         ){}
     
     
