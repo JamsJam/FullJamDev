@@ -38,7 +38,7 @@ class ImageUploader
     {
         
         $slug = $technology->getSlug();
-        $safeLogoName = 'logo-'.$slug.'-'.uniqid().'-'.$file->guessExtension() ;
+        $safeLogoName = 'logo-'.$slug.'-'.uniqid().'.'.$file->guessExtension() ;
         
         return $safeLogoName;
     }
