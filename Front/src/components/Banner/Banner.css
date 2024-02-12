@@ -1,0 +1,72 @@
+.banner{
+    width: 70%;
+    height: 170px;
+
+    background-color: rgb(10, 75, 131);
+
+    position:relative
+
+
+}
+
+.banner__overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+
+    height: 100%;
+    width: calc(50% - 170px);
+
+    background-color: rgba(0, 0, 0, 0.315);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+    transition: background-color 250ms ease-in-out;
+}
+.banner__overlay::after{
+    content: "";
+    position: absolute;
+    top:0;
+    right: -170px;
+    
+    height: 0;
+    width: 0;
+    
+    /* background-color: rgba(0, 0, 0, 0.315);
+    backdrop-filter: blur(4px); */
+    /* z-index: 1; */
+    
+    display : inline-block;
+    height : 0;
+    width : 0;
+    border-top : 170px solid transparent;
+    border-left : 170px solid rgba(0, 0, 0, 0.315);
+    z-index: 1;
+    backdrop-filter: blur(4px);
+    transition: border 250ms ease-in-out;
+    
+}
+
+.banner__info{
+    position: absolute  ;
+    top: 0;
+    left: 1rem;
+    z-index: 2;
+    
+    height: 100%;
+    
+    padding-block: 0.5rem;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.banner:hover .banner__overlay{
+    background-color: rgba(0, 0, 0, 0.846);
+
+}
+.banner:hover .banner__overlay::after{
+    border-left : 170px solid rgba(0, 0, 0, 0.846);
+}

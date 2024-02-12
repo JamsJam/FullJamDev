@@ -1,0 +1,35 @@
+.carte{
+    width: 300px;
+    height: 330px;
+
+    border-radius: 20px;
+
+    background-color: var(--neutral-95);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.carte a{
+    color: var(--secondary-25);
+}
+
+.carte img{
+    width: 280px;
+    height: 220px;
+}
+
+.carte__infoContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.carte__info p{
+    color: var(--secondary-25);
+
+}

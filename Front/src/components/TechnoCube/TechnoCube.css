@@ -1,0 +1,28 @@
+.technoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.techno__logo{
+    height: 100px;
+    width: 100px;
+
+    border: 3px solid #87B9C5;
+    border-radius: 20px;
+    
+    background-color: var(--info-05);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.techno__logo img{
+    height: 55px;
+    width: 55px;
+
+
+}
