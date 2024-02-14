@@ -76,6 +76,7 @@ export default function Header() {
                 
                 <Burger
                     burgerClick={displayContexMenu}
+                    isActiv={display}
                 />
 
 
@@ -86,14 +87,16 @@ export default function Header() {
                         <NavLink 
                             to='/'
                             className='titre-18'
-                        > 
+                            onClick={()=>setDisplay(false)}
+                            > 
                             Accueil
                         </NavLink>
                         
                         <NavLink 
                             to='/mesprojets'
                             className='titre-18'
-                        > 
+                            onClick={()=>setDisplay(false)}
+                            > 
                             Mes Projets
                         </NavLink>
                     </div>

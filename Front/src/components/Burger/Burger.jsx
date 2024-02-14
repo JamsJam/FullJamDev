@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import './Burger.css'
 
-export default function Burger({burgerClick}) {
+export default function Burger({burgerClick, isActiv}) {
 
-    const [isActiv, setIsActiv] = useState(false)
+    // const [isActiv, setIsActiv] = useState(false)
 
     const handleBurgerClick= ()=>{
-        setIsActiv(!isActiv)
+        // setIsActiv(!isActiv)
         burgerClick()
     }
 

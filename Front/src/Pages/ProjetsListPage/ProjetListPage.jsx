@@ -1,15 +1,14 @@
 import React from 'react'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
-import Contact from '../../shared/Contact/Contact'
-import Carte from '../../components/Carte/Carte'
-import ProjetSearch from './ProjetSearch/ProjetSearch'
+import {useDispatch, useSelector} from 'react-redux'
 import ProjetList from './ProjetList/ProjetList'
 import { useMediaQuery } from 'react-responsive'
 import './ProjetListPage.css'
 
 export default function ProjetListPage() {
 
+  const dispatch = useDispatch()
+  
+  const list = useSelector((state)=>state.projects.list) 
 
   const isDesktop = useMediaQuery({
     query: '(min-width: 769px)'
@@ -24,14 +23,16 @@ export default function ProjetListPage() {
   const isMobile = useMediaQuery({
       query: '(max-width: 500px)'
     })
-    
+
   return (
 
 
         <main className='mesProjets' id='mesprojets'>
           <h1 className={`${isTablette ? 'titre-64-to-40--tab' : 'titre-64-to-40'}`}>Mes Projets</h1>
           {/* <ProjetSearch/> */}
-          <ProjetList/>
+          <ProjetList
+            projects ={list}
+          />
 
             {/* <Carte/> */}
         </main>

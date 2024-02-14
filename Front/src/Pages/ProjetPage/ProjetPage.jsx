@@ -1,4 +1,5 @@
 import React from 'react'
+import {useSelector} from 'react-redux'
 import Button from "./../../components/Buttons/Button"
 import TechnoCube from "./../../components/TechnoCube/TechnoCube"
 import "./ProjetPage.css"
@@ -7,6 +8,9 @@ import { useMediaQuery } from 'react-responsive'
 
 export default function ProjetPage() {
     
+  const {titre, description, technologies, images } = useSelector((state)=>state.projects.choosen)
+  
+
   const isDesktop = useMediaQuery({
       query: '(min-width: 769px)'
     })
@@ -27,7 +31,7 @@ export default function ProjetPage() {
       <h1 
         className={`${isTablette ? 'titre-64-to-40--tab' : 'titre-64-to-40'}`}
       >
-        Titre du projet
+        {titre}
       </h1>
 
       {/* description */}
@@ -40,7 +44,7 @@ export default function ProjetPage() {
           Description
         </h2>
         <p className='texte-16-r'>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro laborum ex eos natus voluptates corporis dignissimos cum animi odit, amet earum sequi nulla distinctio doloremque iusto voluptatum reprehenderit dolorem fugit consequuntur culpa tenetur quos! Quasi illo iure est vero nam!
+          {description}
         </p>
       </section>
 
@@ -54,15 +58,10 @@ export default function ProjetPage() {
           Technologies
         </h2>
         <div>
-          <TechnoCube
-            techno={"Symfony"}
-          />
-          <TechnoCube
-            techno={"React"}
-          />
-          <TechnoCube
-            techno={"Sass"}
-          />
+          {technologies.map((techno)=>{
+            return (<TechnoCube techno={techno.nom} />)
+          })
+        }
         </div>
         
       </section>
@@ -81,16 +80,11 @@ export default function ProjetPage() {
           {/* carousel */}
           <div className='carousel__projet'>
             <Carousel
-            // add imagelist carousel
+              imageList={images.slider}
             />
           </div>
           
-          {/* thumbnails */}
-          <div className='thumbnails'>
-            {/* add thumbnails list */}
-            
 
-          </div>
         
         </div>
 

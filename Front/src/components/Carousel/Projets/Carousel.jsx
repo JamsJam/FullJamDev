@@ -1,22 +1,22 @@
 import React, { useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {useSelector} from 'react-redux'
 import { useMediaQuery } from 'react-responsive';
-import { v4 as uuidv4 } from 'uuid';
-import { Navigation } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './Carousel.css';
 
 
-export default function Carousel() {
+export default function Carousel({imageList}) {
 
+  const {slug, images} = useSelector((state)=>state.projects.choosen)
 
-  const tableTest = [
-    "https://picsum.photos/600/600",
-    "https://picsum.photos/500/500",
-    "https://picsum.photos/300/300"
-  ]
+  const tableImage = Object.values(images.slider)
 
+  // for (const [key, value] of Object.entries(images.slider)) {
+  //   tableImage.push(`${key}: ${value}`);
+  // }
+ 
   
   const displayRef = useRef(null)
 
@@ -26,18 +26,14 @@ export default function Carousel() {
     query: '(min-width: 769px)'
   })
 
-  const isTablette = useMediaQuery({
-      query: '(max-width: 769px)'
-    })
-  const isMobile = useMediaQuery({
-      query: '(max-width: 500px)'
-    })
+
 
 
 
     const changeSlideFromThumbnails = (e)=>{
-      displayRef.current.setAttribute('src', e.target.getAttribute('src'))
+      const currentIndex = e.target.getAttribute('data-index')
 
+      displayRef.current.setAttribute('src', `http://localhost:8000/assets/projet/${slug}/${tableImage[currentIndex].onDisplay}`)
     }
 
     const focusSelectedThumbnail = (e) =>{
@@ -49,7 +45,6 @@ export default function Carousel() {
 
         e.target.classList.add('onDisplay')
 
-        
       }
       else{
         return
@@ -67,30 +62,28 @@ export default function Carousel() {
 
           <div className="capture-project__display">
 
-            <img src={tableTest[0]} alt="" className="capture-project__onDisplay" ref={displayRef} />
+            <img src={`http://localhost:8000/assets/projet/${slug}/${tableImage[0].onDisplay}`} alt="" className="capture-project__onDisplay" ref={displayRef} />
 
           </div>
 
 
           <div className="capture-project__thumbnails">
 
-          {tableTest.map((item,index)=>{
+          {tableImage.map((item,index)=>{
               
               return(
-                <img key={index} data-slide={index} src={item} alt="" 
-                
+                <img 
+                  key={index} 
+                  data-index={index} 
+                  src={`http://localhost:8000/assets/projet/${slug}/${item.miniature}`}
+                  alt="" 
                   className={
                     ` project-thumbnails ${isDesktop  ? 'fullSize' : 'progSize' } ${index == 0 ? 'onDisplay' : ''}`
                   }
-                  
-
-                  onClickCapture={
-                    (e)=>{
+                  onClickCapture={(e)=>{
                       changeSlideFromThumbnails(e)
                       focusSelectedThumbnail(e)
-                    }
-
-                  }
+                    }}
                 
                 />
                 

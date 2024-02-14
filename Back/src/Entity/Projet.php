@@ -55,7 +55,7 @@ class Projet
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['get:item:project'])]
+    #[Groups(['get:item:project','get:collection:card'])]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]

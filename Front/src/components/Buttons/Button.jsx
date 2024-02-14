@@ -79,6 +79,7 @@ export default function Button({
               <a
                   href={link}
                   className={`${className}`}
+                  onClick={handleClick || null}
               >
                   {icon && <img src={icon} className='icon' />}
                   {label}
@@ -97,6 +98,7 @@ export default function Button({
               <Link 
                   to={link}
                   className={`${className}`}
+                  onClick={handleClick || null}
               >
                   {icon && <img src={icon} className='icon' />}
                   {label}
