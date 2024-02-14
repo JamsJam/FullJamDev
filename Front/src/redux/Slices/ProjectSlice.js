@@ -328,3 +328,22 @@ export const {
 } = projectSlice.actions
 
 export default projectSlice.reducer
+
+
+export function fetchList(action){
+  return async function(dispatch, getState){
+      // dispatch(addLoader())
+      try {
+          
+          const response = await fetch(`http://localhost:8000/api/get-project-list/`);
+          const results = await response.json();
+          const data = await results['hydra:member']
+            
+             dispatch(addToList(data))
+      } catch (error) {
+          console.info("Erreur in getData",error.message)
+          dispatch(addError(error.message))
+      }
+  }   
+
+}

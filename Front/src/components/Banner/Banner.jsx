@@ -1,12 +1,19 @@
 import React from 'react'
+import {useDispatch} from 'react-redux'
+import { getChoosenProject } from '../../redux/Slices/ProjectSlice'
 import './Banner.css'
 import Button from '../Buttons/Button'
 
 export default function Banner({project}) {
 
-  console.log(project)
-  const {titre, categorie, images, slug} = project
+  const dispatch = useDispatch()
+  const {titre, categorie, images, slug, id} = project
   const {banner} = images
+
+  const handleChoosenBanner =()=> {
+
+    dispatch(getChoosenProject(id))
+  }
     
   return (
     <div className='banner' 
@@ -17,10 +24,11 @@ export default function Banner({project}) {
         <p className='titre-18'>{titre}</p>
         <p className='texte-16-r'>{categorie.nom}</p>
         <Button
-          type={'navlink'}
+          type={'link'}
           link={`/projet/${slug}`}
           label={'Voir le projet'}
           className={'button button--secondary--small texte-13-m'}
+          handleClick={()=>handleChoosenBanner() }
         />
       </div>
 

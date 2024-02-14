@@ -44,10 +44,11 @@ const isMobile = useMediaQuery({
       { !isTablette ?
         <div className="banner__container">
           
-          {hightlighted.map((projet)=>{
+          {hightlighted.map((projet, index)=>{
             return (
               <Banner
                 project={projet}
+                key={index}
               />
             )
           })}

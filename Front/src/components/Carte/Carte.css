@@ -15,6 +15,9 @@
 .carte a{
     color: var(--secondary-25);
 }
+.carte a:hover,.carte a:focus {
+    color: var(--neutral-95);
+}
 
 .carte img{
     width: 280px;

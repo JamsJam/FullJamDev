@@ -4,48 +4,63 @@ import Button from '../../components/Buttons/Button'
 import './Contact.css'
 
 export default function Contact() {
-  const isDesktop = useMediaQuery({
-    query: '(min-width: 769px)'
-  })
 
-const isTabletteXl = useMediaQuery({
-    query: '(min-width: 1200px)'
-  })
-const isTablette = useMediaQuery({
+  const isTablette = useMediaQuery({
     query: '(max-width: 769px)'
   })
-const isMobile = useMediaQuery({
-    query: '(max-width: 500px)'
-  })
+
+  const handleFormSubmit =(e)=>{
+    e.preventDefault()
+    
+    
+    const formData = new FormData(e.target);
+    const formValues = [];
+
+    for (const pair of formData.entries()) {
+      const obj = {};
+      obj[pair[0]] = pair[1];
+      formValues.push(obj);
+    }
+
+    console.log(JSON.stringify(formValues));
+  }
+
+  
+
+
 
   return (
     <section className='contact' id="mecontacter">
       <h2 className={`${isTablette ? 'titre-32-to-18--tab' :'titre-32'}`}>Discutons de votre projet</h2>
-      <form>
+      
+      
+      <form onSubmit={(e)=>handleFormSubmit(e)}>
 
-      <div className='inputContainer'>
+        <div className='inputContainer'>
 
-        <label htmlFor="email" className='texte-16-sb'>
-          E-mail
-        </label>
-          <input 
-            type="text" 
-            name="email" 
-            placeholder='xyz@hotmail.com'
-          />
-      </div>
+          <label htmlFor="email" className='texte-16-sb'>
+            E-mail
+          </label>
+            <input 
+              type="text" 
+              name="email" 
+              placeholder='xyz@hotmail.com'
+              className='texte-16-r'
+              />
+        </div>
 
-      <div className='inputContainer'>
-        <label htmlFor="corps" className='texte-16-sb'>
-          Message
-        </label>
-          <textarea 
-            name="corps"  
-            cols="30" 
-            rows="10"
-            placeholder='Votre Message...'
-          ></textarea>
-      </div>
+        <div className='inputContainer'>
+          <label htmlFor="corps" className='texte-16-sb'>
+            Message
+          </label>
+            <textarea 
+              name="corps"  
+              cols="30" 
+              rows="10"
+              placeholder='Votre Message...'
+              className='texte-16-r'
+            ></textarea>
+        </div>
 
         <Button
           label={'Envoyer'}
