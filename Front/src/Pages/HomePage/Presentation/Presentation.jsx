@@ -2,7 +2,9 @@ import React from 'react'
 import LogoAccueil from '../../../assets/Logo-Master.png'
 import './Presentation.css'
 import Button from '../../../components/Buttons/Button'
-import logoGitHub from './../../../assets/logoGit/Vector.png'
+import logoGitHub from './../../../assets/logo/logoGit/Vector.png'
+import logoLinkedin from './../../../assets/linkedin-logo.png'
+import logoInsta from './../../../assets/insta-logo.png'
 import {useMediaQuery} from 'react-responsive'
 
 export default function Presentation() {
@@ -44,7 +46,14 @@ export default function Presentation() {
                     
                 </div>
 
-                <div className={`${isTablette ? 'buttonReseau__container--tab' : 'buttonReseau__container--desk'}`}>
+                <div className={
+                        `${
+                            !isMobile ? 
+                                isTablette ? 
+                                    'buttonReseau__container--tab' 
+                                    : 'buttonReseau__container--desk' 
+                            : 'buttonReseau__container--mobile' 
+                        }`}>
                     
                     <Button
                         className={'button button--reseau titre-12'}
@@ -56,7 +65,7 @@ export default function Presentation() {
 
                     <Button
                         className={'button button--reseau titre-12'}
-                        label={"Instagram"}
+                        label={"Malt"}
                         link={"#"}
                         type={'extLink'}
                         icon={logoGitHub}
@@ -64,10 +73,18 @@ export default function Presentation() {
 
                     <Button
                         className={'button button--reseau titre-12'}
+                        label={"Instagram"}
+                        link={"#"}
+                        type={'extLink'}
+                        icon={logoInsta}
+                        />
+
+                    <Button
+                        className={'button button--reseau titre-12'}
                         label={"Linkdin"}
                         link={"#"}
                         type={'extLink'}
-                        icon={logoGitHub}
+                        icon={logoLinkedin}
                         />
 
                 </div>

@@ -57,17 +57,27 @@
 .buttonReseau__container--tab{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     
     gap:1rem;
 
     width: 100%;
-
+    
     /* margin-block: 2em; */
     /* margin-block: 2em 4em; */
-
     
+    
+}
+
+.buttonReseau__container--mobile{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    row-gap: 1.5rem;
 }
 
 .buttons__Container{

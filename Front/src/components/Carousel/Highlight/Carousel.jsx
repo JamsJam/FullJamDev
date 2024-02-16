@@ -27,7 +27,7 @@ export default function Carousel({projects}) {
                     <div 
                         key={index}  
                         data-index={index} 
-                        className={'pagination__bullet'}
+                        className={'pagination__bullet texte-18-sb'}
                         onClick={(e)=>{handleBulletClick(e)}}
                     >{index+1}</div>
             )})}
