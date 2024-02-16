@@ -1,0 +1,39 @@
+.apropos{
+    
+    gap:2rem;
+    
+    width: 100vw;
+    min-height: 70vh;
+    
+    background: linear-gradient(180deg, var(--info-05) 0.73%, var(--secondary-25) 30.54%, var(--secondary-25) 100%);
+}
+
+.apropos h2{
+    
+    text-align: start;
+    margin-block: 5rem 2rem;
+    /* padding-inline: 5rem; */
+    padding-inline: clamp(0.5rem, -22.2727rem + 48.4848vw, 5rem);
+    
+}
+
+.appropsSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    gap: 3rem;
+    
+    padding-inline: 2rem;
+}
+
+.apropos__container{
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}

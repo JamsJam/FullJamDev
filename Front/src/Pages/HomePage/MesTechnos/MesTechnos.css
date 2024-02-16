@@ -1,0 +1,32 @@
+.mesTechnos{
+    background: linear-gradient(180deg, var(--secondary-25) 45%, var(--info-05) 82.54%, var(--info-05) 100%);
+
+    min-height: 70vh;
+    width: 100vw;
+
+    /* padding-inline: 5rem; */
+}
+
+.mesTechnos h2{
+    padding-inline: clamp(0.5rem, -22.2727rem + 48.4848vw, 5rem);
+    text-align: start;
+    margin-block: 100px;
+    
+}
+.techno__grid{
+    display: grid;
+    place-items: center;
+    justify-content: center;
+
+    grid-template-columns: repeat(auto-fit, minmax(200px, 20vw));
+    grid-template-rows: 1fr 1fr;
+
+    row-gap: 2rem;
+    
+    padding-inline: 2rem;
+    /* padding-inline: 5rem; */
+
+    width: calc(90vw  - 2rem);
+    margin-inline: auto;
+}
+

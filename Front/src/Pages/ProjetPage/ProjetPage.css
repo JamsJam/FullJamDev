@@ -1,0 +1,83 @@
+.projet{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap:6rem;
+
+    min-height: 100vh;
+    padding-top: 100px;
+    /* padding-inline: 4rem; */
+}
+
+.projet h1{
+    text-align: center;
+}
+
+.description, .technologie{
+    /* padding-inline: 4rem; */
+    width: 90vw;
+    max-width: 1200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 2rem;
+    
+    margin-inline: auto;
+    
+}
+.description p{
+    max-width: 800px;
+    
+}
+.technologie>div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+
+    gap: 2rem
+
+}
+
+.carousel__projet{
+    width: 100%;
+    /* padding-inline: 2rem; */
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.preview{
+    /* padding-inline: 4rem; */
+    width: 90vw;
+    max-width: 1200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 2rem;
+    
+    margin-inline: auto;
+    
+}
+
+.button__container{
+    width: 90vw;
+    max-width: 1200px;
+
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+
+    margin-inline: auto;
+    margin-block-end: 2rem
+}

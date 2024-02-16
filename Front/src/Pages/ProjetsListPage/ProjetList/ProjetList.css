@@ -1,0 +1,11 @@
+.gridProjet{
+    max-width: 1440px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 30%));
+    margin-inline:auto;
+    /* padding-inline:10rem ; */
+    row-gap: 2rem;
+    place-items: center;
+    margin-block: 2rem;
+}

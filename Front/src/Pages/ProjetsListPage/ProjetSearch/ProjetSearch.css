@@ -1,0 +1,31 @@
+.projetSearch{
+    
+}
+.filter-choice{
+    display: none;
+}
+.filter-choice-div{
+    appearance: none;
+
+
+
+    /* width: fit-content; */
+    padding: 14px 28px;
+
+    border-radius: 15px;
+    border: 2px solid var(--primary-45);
+    background-color: var(--primary-15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    letter-spacing: 0.72px;
+
+}
+.filter-choice--div:hover{
+    background-color: var(--primary-25);
+}
+.filter-choice--div.check{
+    background-color: var(--primary-45);
+}
