@@ -22,11 +22,12 @@ jobs:
       
       - name: test pwd
         run:
-          sshpass -e ssh -o stricthostkeychecking=no ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
-          "cd web/les-pros-de-la-com.jamdev.tech/public_html/ &&
-          git pull &&
-          /usr/bin/php8.1 /usr/local/bin/composer install &&
-          php8.1 bin/console d:m:m -n"
+          sshpass -e ssh -o stricthostkeychecking=no ${{ secrets.APP__USER }}@${{ secrets.APP__HOST }}
+          "pwd"
+          # "cd web/les-pros-de-la-com.jamdev.tech/public_html/ &&
+          # git pull &&
+          # /usr/bin/php8.1 /usr/local/bin/composer install &&
+          # php8.1 bin/console d:m:m -n"
 
 #! ----- Code  2
 
