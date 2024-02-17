@@ -34,7 +34,7 @@ name: deploy-prod
 on:
   push:
     branches:
-      - tgit 
+      - testCI
 jobs:
   deploy-alkatraz:
     runs-on: ubuntu-latest
