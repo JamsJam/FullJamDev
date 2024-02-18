@@ -50,4 +50,4 @@ jobs:
           password: ${{ secrets.APP__SECRET }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ../home/user/web/back.fulljamdev.fr/public_html/FullJamDev && git pull && cd Back && composer install && php bin/console d:m:m -no-interaction 
+            cd web/back.fulljamdev.fr/public_html/FullJamDev && git pull && cd Back && composer install && php bin/console d:m:m -no-interaction 
