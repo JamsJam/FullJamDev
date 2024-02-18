@@ -33,7 +33,7 @@ export default function Carousel({imageList}) {
     const changeSlideFromThumbnails = (e)=>{
       const currentIndex = e.target.getAttribute('data-index')
 
-      displayRef.current.setAttribute('src', `http://localhost:8000/assets/projet/${slug}/${tableImage[currentIndex].onDisplay}`)
+      displayRef.current.setAttribute('src', `https://back.fulljamdev.fr/assets/projet/${slug}/${tableImage[currentIndex].onDisplay}`)
       displayRef.current.setAttribute('alt', tableImage[currentIndex].onDisplay)
     }
 
@@ -63,7 +63,7 @@ export default function Carousel({imageList}) {
 
           <div className="capture-project__display">
 
-            <img src={`http://localhost:8000/assets/projet/${slug}/${tableImage[0].onDisplay}`} alt={tableImage[0].onDisplay} className="capture-project__onDisplay" ref={displayRef} />
+            <img src={`https://back.fulljamdev.fr/assets/projet/${slug}/${tableImage[0].onDisplay}`} alt={tableImage[0].onDisplay} className="capture-project__onDisplay" ref={displayRef} />
 
           </div>
 
@@ -76,7 +76,7 @@ export default function Carousel({imageList}) {
                 <img 
                   key={index} 
                   data-index={index} 
-                  src={`http://localhost:8000/assets/projet/${slug}/${item.miniature}`}
+                  src={`https://back.fulljamdev.fr/assets/projet/${slug}/${item.miniature}`}
                   alt={item.miniature} 
                   className={
                     ` project-thumbnails ${isDesktop  ? 'fullSize' : 'progSize' } ${index == 0 ? 'onDisplay' : ''}`
