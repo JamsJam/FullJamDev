@@ -47,12 +47,14 @@ jobs:
         with:
           host: ${{ secrets.APP__HOST }}
           username: ${{ secrets.APP__USER }}
-          password: ${{ secrets.APP__SECRET }}
+          key: ${{ secrets.APP__SECRET }}
           port: ${{ secrets.PORT }}
           script: |
-            cd web/fulljamdev.fr/public_html/ && git pull &&
-            /usr/bin/php8.1 /usr/local/bin/composer install &&
-            php8.1 bin/console d:m:m -n
+          echo "hello World"
+
+        # cd web/fulljamdev.fr/public_html/ && git pull &&
+            # /usr/bin/php8.1 /usr/local/bin/composer install &&
+            # php8.1 bin/console d:m:m -n
             
             
             
