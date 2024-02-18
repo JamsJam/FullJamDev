@@ -34,6 +34,7 @@ export default function Carousel({imageList}) {
       const currentIndex = e.target.getAttribute('data-index')
 
       displayRef.current.setAttribute('src', `http://localhost:8000/assets/projet/${slug}/${tableImage[currentIndex].onDisplay}`)
+      displayRef.current.setAttribute('alt', tableImage[currentIndex].onDisplay)
     }
 
     const focusSelectedThumbnail = (e) =>{
@@ -62,7 +63,7 @@ export default function Carousel({imageList}) {
 
           <div className="capture-project__display">
 
-            <img src={`http://localhost:8000/assets/projet/${slug}/${tableImage[0].onDisplay}`} alt="" className="capture-project__onDisplay" ref={displayRef} />
+            <img src={`http://localhost:8000/assets/projet/${slug}/${tableImage[0].onDisplay}`} alt={tableImage[0].onDisplay} className="capture-project__onDisplay" ref={displayRef} />
 
           </div>
 
@@ -76,7 +77,7 @@ export default function Carousel({imageList}) {
                   key={index} 
                   data-index={index} 
                   src={`http://localhost:8000/assets/projet/${slug}/${item.miniature}`}
-                  alt="" 
+                  alt={item.miniature} 
                   className={
                     ` project-thumbnails ${isDesktop  ? 'fullSize' : 'progSize' } ${index == 0 ? 'onDisplay' : ''}`
                   }

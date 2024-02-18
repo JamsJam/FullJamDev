@@ -59,11 +59,11 @@ class Projet
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['get:item:project'])]
+    #[Groups(['get:collection:card','get:item:project'])]
     private ?string $lien = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['get:item:project'])]
+    #[Groups(['get:collection:card','get:item:project'])]
     private ?string $github = null;
 
     #[ORM\Column]

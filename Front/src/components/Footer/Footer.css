@@ -48,7 +48,19 @@ footer{
     margin-bottom: 2rem;
 }
 .footer__reseau{
-    width: 40px;
+    width: 50px;
+    aspect-ratio: 1/1;
+    
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border 250ms ease-in-out, background 250ms ease-in-out;
+}
+.footer__reseau:hover, .footer__reseau:hover{
+    border: var(--secondary-45) 3px solid;
+    background-color: hsla(269,100%,15%,20%);
 }
 
 .footer2__container{

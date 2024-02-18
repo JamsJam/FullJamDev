@@ -4,7 +4,7 @@ import "./Header.css"
 import { useMediaQuery } from 'react-responsive'
 
 import logoHeader from "../../assets/jamdev-header.png"
-import logoinsta from "../../assets/insta-logo.png"
+import logoMalt from "../../assets/LogoMalt.svg"
 import logoLinkedin from "../../assets/linkedin-logo.png"
 import logogit from "../../assets/Github-logo.png"
 import { NavLink } from 'react-router-dom'
@@ -36,19 +36,23 @@ export default function Header() {
 
   return (
     <header>
-        
-        <img src={logoHeader} alt="Logo FullJamDev" />
+        <NavLink 
+            to='/'
+            // className='fjd-header-logo'
+        > 
+            <img src={logoHeader} alt="Logo FullJamDev" className='fjd-header-logo' />
+        </NavLink>
 
         {isDesktop && 
             <>
                 <nav className="linkContainer">
 
-                    {/* <a href="#" className='titre-18'> Link 1</a>
-                    <a href="#" className='titre-18'> Link 2</a> */}
+                    
                     <NavLink 
                         to='/'
                         className='titre-18'
                     > Accueil</NavLink>
+
                     <NavLink 
                         to='/mesprojets'
                         className='titre-18'
@@ -58,14 +62,14 @@ export default function Header() {
 
             
                 <div className="reseauContainer">
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
-                        <img src={logoinsta} alt=""  width={30}/>
+                    <a href="https://www.malt.fr/profile/jeremyantoine" target="_blank" rel="noopener noreferrer" className='header__reseau'>
+                        <img src={logoMalt} alt="logo-malt"  width={30}/>
                     </a>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
-                        <img src={logoLinkedin} alt=""  width={30}/>
+                    <a href="https://www.linkedin.com/in/jeremy-antoine-dwwm/" target="_blank" rel="noopener noreferrer" className='header__reseau'>
+                        <img src={logoLinkedin} alt="Logo-linkedin"  width={30}/>
                     </a>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
-                        <img src={logogit} alt=""  width={30}/>
+                    <a href="https://github.com/JamsJam" target="_blank" rel="noopener noreferrer" className='header__reseau'>
+                        <img src={logogit} alt="logo-git"  width={30}/>
                     </a>
                 </div>
             </>
@@ -102,14 +106,14 @@ export default function Header() {
                     </div>
 
                     <div className="reseauContainer">
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
-                            <img src={logoinsta} alt=""  width={30}/>
+                        <a href="https://www.malt.fr/profile/jeremyantoine" target="_blank" rel="noopener noreferrer" className='header__reseau'>
+                            <img src={logoMalt} alt="logo-malt"  width={30}/>
                         </a>
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
-                            <img src={logoLinkedin} alt=""  width={30}/>
+                        <a href="https://www.linkedin.com/in/jeremy-antoine-dwwm/" target="_blank" rel="noopener noreferrer" className='header__reseau'>
+                            <img src={logoLinkedin} alt="logo-linkedin"  width={30}/>
                         </a>
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
-                            <img src={logogit} alt=""  width={30}/>
+                        <a href="https://github.com/JamsJam" target="_blank" rel="noopener noreferrer" className='header__reseau'>
+                            <img src={logogit} alt="logo-git"  width={30}/>
                         </a>
                     </div>
 

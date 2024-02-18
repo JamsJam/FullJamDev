@@ -8,22 +8,14 @@ import { useMediaQuery } from 'react-responsive'
 
 export default function ProjetPage() {
     
-  const {titre, description, technologies, images } = useSelector((state)=>state.projects.choosen)
+  const {titre, description, technologies, images, lien , github } = useSelector((state)=>state.projects.choosen)
   
 
-  const isDesktop = useMediaQuery({
-      query: '(min-width: 769px)'
-    })
 
-  const isTabletteXl = useMediaQuery({
-      query: '(min-width: 1200px)'
-    })
   const isTablette = useMediaQuery({
       query: '(max-width: 769px)'
     })
-  const isMobile = useMediaQuery({
-      query: '(max-width: 500px)'
-    })
+
 
   return (
     <main className='projet'>
@@ -58,8 +50,8 @@ export default function ProjetPage() {
           Technologies
         </h2>
         <div>
-          {technologies.map((techno)=>{
-            return (<TechnoCube techno={techno.nom} />)
+          {technologies.map((techno, index)=>{
+            return (<TechnoCube key={index} techno={techno.nom} />)
           })
         }
         </div>
@@ -95,17 +87,24 @@ export default function ProjetPage() {
       <section 
         className='button__container'
       >
-        <Button
-          type='extLink'
-          label="Github"
-          className={"button button--github texte-18-to-13-sb"}
-        />
-        <Button
-        
-          type='extLink'
-          label="Voir le projets"
-          className={"button button--secondary--small texte-18-to-13-sb"}
-        />
+        {github !== "indisponible" &&
+
+          <Button
+            type='extLink'
+            link={github}
+            label="Github"
+            className={"button button--github texte-18-to-13-sb"}
+          />
+        }
+
+        {lien !== "indisponible" &&
+          <Button
+            type='extLink'
+            link={lien}
+            label="Voir le projets"
+            className={"button button--secondary--small texte-18-to-13-sb"}
+          />
+      }
         
       </section>
 

@@ -5,7 +5,8 @@ import { Link, NavLink } from 'react-router-dom';
 export default function Button({
   label, 
   link = '#', 
-  icon, 
+  icon,
+  alt, 
   className, 
   type = 'link', 
   buttonType,
@@ -62,7 +63,7 @@ export default function Button({
                   href={link}
                   className={`${className}`}
               >
-                  {icon && <img src={icon} className='icon' />}
+                  {icon && <img src={icon} className='icon' alt={alt}/>}
                   {label}
               </a>
       
