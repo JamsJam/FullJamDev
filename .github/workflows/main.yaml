@@ -50,11 +50,9 @@ jobs:
           password: ${{ secrets.APP__SECRET }}
           port: ${{ secrets.PORT }}
           script: |
-            echo "hello World"
-
-        # cd web/fulljamdev.fr/public_html/ && git pull &&
-            # /usr/bin/php8.1 /usr/local/bin/composer install &&
-            # php8.1 bin/console d:m:m -n
+            cd ../home/user/web/fulljamdev.fr/public_html/ && git pull &&
+              cd back/composer install && php bin/console d:m:m -no-interaction &&
+              cd ../Front && npm install && npm build 
             
             
             
