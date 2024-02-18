@@ -2,9 +2,11 @@ import React from 'react'
 import './Footer.css'
 import jamdevLogo from '../../assets/jamdev-header.png'
 import instaLogo from '../../assets/insta-logo.png'
+import logoMalt from '../../assets/logoMalt.svg'
 import linkdinLogo from '../../assets/linkedin-logo.png'
 import gitLogo from '../../assets/Github-logo.png'
 import { useMediaQuery } from 'react-responsive'
+import { NavLink } from 'react-router-dom'
 
 export default function Footer() {
 
@@ -26,23 +28,50 @@ export default function Footer() {
 			
 			{ isDesktop && 
 				<div>
-					<img className='footer__logo' src={jamdevLogo} alt="" />
+					<NavLink
+						to={'/'}>
+
+						<img className='footer__logo' src={jamdevLogo} alt="" />
+					</NavLink>
 				</div>
 				}
 			
 				
 				<ul className='footer__nav titre-14'>
-					<li>Accueil</li>
-					<li>Mes projets</li>
+					<li>
+						{/* Accueil */}
+						<NavLink 
+							to='/'
+							className='titre-14'
+						> Accueil</NavLink>
+					</li>
+
+					<li>
+						{/* Mes projets */}
+					
+                    <NavLink 
+                        to='/mesprojets'
+                        className='titre-14'
+                    > Mes Projets</NavLink>
+					</li>
+					
+
 				</ul>
 				
 				
 				<div>
 
 					<div className='footer__reseauContainer'>
-						<img className='footer__reseau' src={instaLogo} alt="" />
-						<img className='footer__reseau' src={linkdinLogo} alt="" />
-						<img className='footer__reseau' src={gitLogo} alt="" />
+
+						<a href="https://www.malt.fr/profile/jeremyantoine" target="_blank" rel="noopener noreferrer" className='footer__reseau'>
+                            <img src={logoMalt} alt="logo-malt"  width={30}/>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jeremy-antoine-dwwm/" target="_blank" rel="noopener noreferrer" className='footer__reseau'>
+                            <img src={linkdinLogo} alt="logo-linkedin"  width={30}/>
+                        </a>
+                        <a href="https://github.com/JamsJam" target="_blank" rel="noopener noreferrer" className='footer__reseau'>
+                            <img src={gitLogo} alt="logo-git"  width={30}/>
+                        </a>
 					</div>
 
 					<div>
@@ -56,9 +85,9 @@ export default function Footer() {
 			</div>
 
 			<div className='footer2__container'>
-				<p className='titre-14'>
+				{/* <p className='titre-14'>
 					Politique de confidentialité
-				</p>
+				</p> */}
 			</div>
 
 		</footer>

@@ -12,8 +12,8 @@ export default function Contact() {
 
 
   const [flash, setFlash] = useState({
-    error: true,
-    success: true,
+    error: false,
+    success: false,
     test: false
 
   });

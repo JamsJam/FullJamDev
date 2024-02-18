@@ -3,8 +3,9 @@ import LogoAccueil from '../../../assets/Logo-Master.png'
 import './Presentation.css'
 import Button from '../../../components/Buttons/Button'
 import logoGitHub from './../../../assets/logo/logoGit/Vector.png'
-import logoLinkedin from './../../../assets/linkedin-logo.png'
-import logoInsta from './../../../assets/insta-logo.png'
+// import logoLinkedin from './../../../assets/linkedin-logo.png'
+import logoLinkedin from './../../../assets/logo/logoLinkedin/Vector.svg'
+import logoMalt from './../../../assets/logo/logoMalt/Vector.svg'
 import {useMediaQuery} from 'react-responsive'
 
 export default function Presentation() {
@@ -55,36 +56,40 @@ export default function Presentation() {
                             : 'buttonReseau__container--mobile' 
                         }`}>
                     
-                    <Button
-                        className={'button button--reseau titre-12'}
-                        label={"Github"}
-                        link={"#"}
-                        type={'extLink'}
-                        icon={logoGitHub}
-                        />
 
                     <Button
                         className={'button button--reseau titre-12'}
                         label={"Malt"}
-                        link={"#"}
+                        link={"https://www.malt.fr/profile/jeremyantoine"}
                         type={'extLink'}
-                        icon={logoGitHub}
+                        icon={logoMalt}
+                        alt={"logo-reseau-malt"}
                         />
 
-                    <Button
+                    {/* <Button
                         className={'button button--reseau titre-12'}
                         label={"Instagram"}
                         link={"#"}
                         type={'extLink'}
                         icon={logoInsta}
-                        />
+                    /> */}
 
                     <Button
                         className={'button button--reseau titre-12'}
                         label={"Linkdin"}
-                        link={"#"}
+                        link={"https://www.linkedin.com/in/jeremy-antoine-dwwm/"}
                         type={'extLink'}
                         icon={logoLinkedin}
+                        alt={"logo-reseau-linkedin"}
+                        />
+
+                    <Button
+                        className={'button button--reseau titre-12'}
+                        label={"Github"}
+                        link={"https://github.com/JamsJam"}
+                        type={'extLink'}
+                        icon={logoGitHub}
+                        alt={"logo-reseau-git"}
                         />
 
                 </div>

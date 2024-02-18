@@ -19,7 +19,7 @@ header{
     z-index: 1000;
 }
 
-header>img{
+.fjd-header-logo{
     height: auto;
     width: 200px;
 }
@@ -110,4 +110,23 @@ header>img{
 
 .contextMenu .linkContainer{
     flex-direction: column;
+}
+
+
+.header__reseau{
+    width: 50px;
+    aspect-ratio: 1/1;
+    
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: border 250ms ease-in-out, background 250ms ease-in-out;
+}
+
+.header__reseau:hover,.header__reseau:focus{
+    border: var(--secondary-45) 3px solid;
+    background-color: hsla(269,100%,15%,20%);
 }
