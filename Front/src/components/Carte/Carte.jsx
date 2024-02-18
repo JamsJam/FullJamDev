@@ -16,7 +16,7 @@ export default function Carte({project}) {
   return (
     <div className='carte'>
 
-        <img src={`http://localhost:8000/assets/projet/${project.slug}/${project.images.card}`} alt="" />
+        <img src={`https://back.fulljamdev.fr/assets/projet/${project.slug}/${project.images.card}`} alt="" />
         <div className="carte__infoContainer">
             <div className="carte__info">
               <p className="texte-16-b">{project.titre}</p>

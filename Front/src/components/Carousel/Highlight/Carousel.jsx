@@ -37,7 +37,7 @@ export default function Carousel({projects}) {
         <div className={'carousel__wrapper'}>
 
             <div className={'carousel__preview'}>
-                <img src={`http://localhost:8000/assets/projet/${projects[activIndex].slug}/${projects[activIndex].images.slider.image1.onDisplay}`} alt="" />
+                <img src={`https://back.fulljamdev.fr/assets/projet/${projects[activIndex].slug}/${projects[activIndex].images.slider.image1.onDisplay}`} alt="" />
             </div>
 
             <div className={"carousel__infos"}>

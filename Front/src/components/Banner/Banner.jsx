@@ -17,7 +17,7 @@ export default function Banner({project}) {
     
   return (
     <div className='banner' 
-      style={{backgroundImage:`url(http://localhost:8000/assets/projet/${slug}/${banner}) `, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize:'cover'}}
+      style={{backgroundImage:`url(https://back.fulljamdev.fr/assets/projet/${slug}/${banner}) `, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize:'cover'}}
       >
       <div className='banner__overlay'></div>
       <div className="banner__info">
