@@ -50,7 +50,7 @@ jobs:
           key: ${{ secrets.APP__SECRET }}
           port: ${{ secrets.PORT }}
           script: |
-          echo "hello World"
+            echo "hello World"
 
         # cd web/fulljamdev.fr/public_html/ && git pull &&
             # /usr/bin/php8.1 /usr/local/bin/composer install &&
