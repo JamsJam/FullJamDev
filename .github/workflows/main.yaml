@@ -47,7 +47,7 @@ jobs:
         with:
           host: ${{ secrets.APP__HOST }}
           username: ${{ secrets.APP__USER }}
-          key: ${{ secrets.APP__SECRET }}
+          password: ${{ secrets.APP__SECRET }}
           port: ${{ secrets.PORT }}
           script: |
             echo "hello World"
