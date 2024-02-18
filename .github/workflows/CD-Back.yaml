@@ -52,3 +52,4 @@ jobs:
           script: |
             cd ../home/user/web/back.fulljamdev.fr/public_html/FullJamDev && git pull && cd Back && COMPOSER_ALLOW_SUPERUSER=1 composer install && php bin/console d:m:m --no-interaction 
             
+            
