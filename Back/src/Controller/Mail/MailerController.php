@@ -18,6 +18,7 @@ class MailerController extends AbstractController
     {
         $from = $request->getPayload()->get('from');
         $message = $request->getPayload()->get('message');
+        // $response->headers->set('Access-Control-Allow-Origin', '*');
         $to = 'testSymfony@hotmail.com';
 
         $mailService->sendEmail($from, $to, $message);
@@ -27,8 +28,14 @@ class MailerController extends AbstractController
         $contact->setSendAt(New DateTimeImmutable('now'));
         $entityManager->persist($contact);
         $entityManager->flush();
+
+        $response = new JsonResponse(
+            'Mail ok',
+            200,
+            ['Access-Control-Allow-Origin' => '*']
+        );
         
         
-        return $this->json('Mail ok',200);
+        return $response ;
     }
 }

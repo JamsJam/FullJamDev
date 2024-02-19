@@ -335,14 +335,16 @@ export function fetchList(action){
       // dispatch(addLoader())
       try {
           
-          const response = await fetch(`https://back.fulljamdev.fr/api/get-project-list/`);
+          const response = await fetch(`https://back.fulljamdev.fr/api/get-project-list/`,{
+            
+          });
           const results = await response.json();
           const data = await results['hydra:member']
             
              dispatch(addToList(data))
       } catch (error) {
           console.info("Erreur in getData",error.message)
-          dispatch(addError(error.message))
+        //   dispatch(addError(error.message))
       }
   }   
 
