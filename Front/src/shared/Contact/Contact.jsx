@@ -52,7 +52,9 @@ export default function Contact() {
       
       const responseData = await response.json();
       setFlash({...flash,error:false, success: true})
-      console.log('Réponse du serveur :', responseData);
+      // console.log('Réponse du serveur :', responseData);
+      mailRef.current.value = ''
+      messageRef.current.value = ''
     } catch (error) {
       console.error('Erreur lors de la requête :', error);
     }
@@ -68,6 +70,8 @@ export default function Contact() {
 
     }else{
       setFlash({...flash, error: true})
+      mailRef.current.value = ''
+      messageRef.current.value = ''
     }
   }
 
