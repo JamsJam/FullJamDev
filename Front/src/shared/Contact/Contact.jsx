@@ -44,7 +44,7 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch('http://localhost:8000/mail/mailer', options);
+      const response = await fetch('https://back.fulljamdev.fr/mail/mailer', options);
 
       if (!response.ok) {
         throw new Error('Erreur de réseau ou serveur');
