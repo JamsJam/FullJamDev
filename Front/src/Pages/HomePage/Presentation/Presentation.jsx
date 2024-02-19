@@ -36,7 +36,7 @@ export default function Presentation() {
                 
 
                 <div>
-                    <h1 className={`${isTablette ? 'titre-64-to-40--tab' : 'titre-64-to-40'}`}>FullJam Dev HELLO</h1>
+                    <h1 className={`${isTablette ? 'titre-64-to-40--tab' : 'titre-64-to-40'}`}>FullJam Dev</h1>
                     <h2 className={`${isTablette ? 'texte-24-to-18-m--tab' : 'texte-24-to-18-m--desk'}`}>Développeur Web Full Stack</h2>
                 </div>
                     <p className={`${isTablette ? 'titre-40-to-32--tab' : 'titre-40-to-32--desk'}`}>Osez l'excellence</p>
