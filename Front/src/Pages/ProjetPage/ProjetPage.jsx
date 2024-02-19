@@ -101,7 +101,7 @@ export default function ProjetPage() {
           <Button
             type='extLink'
             link={lien}
-            label="Voir le projets"
+            label="Voir le projet"
             className={"button button--secondary--small texte-18-to-13-sb"}
           />
       }
