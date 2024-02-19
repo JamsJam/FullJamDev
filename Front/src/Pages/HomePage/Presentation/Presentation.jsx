@@ -76,7 +76,7 @@ export default function Presentation() {
 
                     <Button
                         className={'button button--reseau titre-12'}
-                        label={"Linkdin"}
+                        label={"Linkedin"}
                         link={"https://www.linkedin.com/in/jeremy-antoine-dwwm/"}
                         type={'extLink'}
                         icon={logoLinkedin}
