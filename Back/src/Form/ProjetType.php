@@ -8,13 +8,13 @@ use App\Entity\Technologies;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProjetType extends AbstractType
@@ -159,15 +159,11 @@ class ProjetType extends AbstractType
                 "multiple" => true,
                 "expanded" => true
             ])
-            ->add('isHighlighted',ChoiceType::class,[
-                "label" => "Mise en avant ?",
-                "expended" => true,
-                "multiple" => true,
-                'choices'  => [
-                    'Oui' => true,
-                    'Non' => false,
-                ],
+            ->add('isHighlighted',CheckboxType::class, [
+                'label'    => 'Mise en avant',
+                'required' => false,
             ])
+            
         ;
     }
 
