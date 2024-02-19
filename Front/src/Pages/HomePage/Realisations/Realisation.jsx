@@ -62,7 +62,6 @@ const isMobile = useMediaQuery({
           <Carousel
           projects={hightlighted}
           />
-        
       }
 
         <Button
