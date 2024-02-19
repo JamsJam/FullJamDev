@@ -8,6 +8,8 @@ use App\Entity\Technologies;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -156,6 +158,15 @@ class ProjetType extends AbstractType
                 "label" => "Technologies du projet",
                 "multiple" => true,
                 "expanded" => true
+            ])
+            ->add('isHighlighted',ChoiceType::class,[
+                "label" => "Mise en avant ?",
+                "expended" => true,
+                "multiple" => true,
+                'choices'  => [
+                    'Oui' => true,
+                    'Non' => false,
+                ],
             ])
         ;
     }
