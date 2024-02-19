@@ -15,6 +15,5 @@ jobs:
           password: ${{ secrets.APP__SECRET }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ../home/user/web/fulljamdev.fr/public_html/FullJamDev && git pull && cd Front && npm install && npm build
+            cd ../home/user/web/fulljamdev.fr/public_html/FullJamDev && git pull && cd Front && npm install && npm run build
 
-            
