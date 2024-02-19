@@ -40,7 +40,7 @@ export default function Apropos() {
             </p>
             
             <p className='texte-18-sb'>
-              Mon objectif est de mettre mes compétences à contribution afin de transformer des idées en réalité et de créer des produits numériques à la hauteur de vos attentes.  
+              Mon objectif est de mettre mes compétences à contribution afin de transformer vos idées en réalité et de créer des produits numériques à la hauteur de vos attentes.  
             </p>
             
           </div>
