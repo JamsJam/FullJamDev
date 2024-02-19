@@ -1,7 +1,7 @@
 nelmio_cors:
     defaults:
         origin_regex: true
-        allow_origin: ['*']
+        allow_origin: ['fulljamdev.fr/*']
         allow_headers: ['*']
         allow_methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE']
         # allow_origin: ['%env(CORS_ALLOW_ORIGIN)%']
