@@ -340,7 +340,7 @@ export function fetchList(action){
           });
           const results = await response.json();
           const data = await results['hydra:member']
-            
+             console.log(data)
              dispatch(addToList(data))
       } catch (error) {
           console.info("Erreur in getData",error.message)
