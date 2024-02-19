@@ -44,7 +44,7 @@ const isMobile = useMediaQuery({
       { !isTablette ?
         <div className="banner__container">
           
-          {list.lengh > 0 && hightlighted.map((projet, index)=>{
+          {list.length > 0 && hightlighted.map((projet, index)=>{
             return (
               <Banner
                 project={projet}
@@ -57,7 +57,7 @@ const isMobile = useMediaQuery({
           
         </div>
       :
-         list.lengh > 0 &&
+         list.length > 0 &&
 
           <Carousel
           projects={hightlighted}
