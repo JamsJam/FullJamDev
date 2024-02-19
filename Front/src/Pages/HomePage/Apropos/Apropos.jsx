@@ -36,11 +36,11 @@ export default function Apropos() {
             </p>
 
             <p className='texte-18-sb'>
-              Je tiens à de rester à jour avec les technologies que j'utilise pour vous garantir des solutions plus qualitatives.  
+              Je tiens à rester à jour avec les technologies que j'utilise pour vous garantir des solutions plus qualitatives.  
             </p>
             
             <p className='texte-18-sb'>
-              Mon objectif est de mettre mes compétences a contribution afin de transformer des idées en réalité et de créer des produits numériques à la hauteur de vos attentes.  
+              Mon objectif est de mettre mes compétences à contribution afin de transformer des idées en réalité et de créer des produits numériques à la hauteur de vos attentes.  
             </p>
             
           </div>
