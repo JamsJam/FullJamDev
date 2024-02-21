@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch} from 'react-redux'
 import './Carte.css'
 import Button from '../Buttons/Button'
-import imageTest from '../../assets/Logo-Master.png'
+// import imageTest from '../../assets/Logo-Master.png'
 import {getChoosenProject} from '../../redux/Slices/ProjectSlice'
 
 export default function Carte({project}) {
