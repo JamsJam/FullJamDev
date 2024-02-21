@@ -1,5 +1,5 @@
 import React from 'react'
-import LogoAccueil from '../../../assets/Logo-Master.png'
+import LogoAccueil from '../../../assets/Logo-Master.jpeg'
 import './Presentation.css'
 import Button from '../../../components/Buttons/Button'
 import logoGitHub from './../../../assets/logo/logoGit/Vector.png'
