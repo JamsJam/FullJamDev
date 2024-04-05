@@ -86,7 +86,7 @@ This is a portfolio website that showcases my skills, projects, and experience a
 | GET      | /api/technologies |  | Get all technologies |
 | GET      | /api/technologies/{id}/projects | id | Get all projects by technology |
 | POST      | /api/contact |  | Send a mail |
-| POST      | /api/login_check |  | Login POUR API PLATFORM |
+
 
 #### Symfony
 
