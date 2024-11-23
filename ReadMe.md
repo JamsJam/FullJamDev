@@ -21,9 +21,7 @@ This is a portfolio website that showcases my skills, projects, and experience a
     - React.js 
     - CSS3
     - Javascript (ES 6 & ES7)
-    - Axios
-    - react redux / toolkit 
-    - react router dom
+    - Sass
 
 - Back-office : 
     - Symfony
