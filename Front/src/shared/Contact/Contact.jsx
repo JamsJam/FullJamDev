@@ -79,72 +79,73 @@ export default function Contact() {
 
 
   return (
-    <section className='contact' id="mecontacter">
-      <h2 className={`${isTablette ? 'titre-32-to-18--tab' :'titre-32'}`}>Discutons de votre projet</h2>
+    // <section className='contact' id="mecontacter">
+    //   <h2 className={`${isTablette ? 'titre-32-to-18--tab' :'titre-32'}`}>Discutons de votre projet</h2>
       
       
-      <form onSubmit={(e)=>handleFormSubmit(e)}>
-        <Flash
-          type={'test'}
-          message={'Ceci est un test'}
-          etat={flash.test}
-          setShowError={(value) => setFlash({ ...flash, test: value })} 
-          />
-        <Flash 
-          type={'error'} 
-          message={'Veuillez entrer une adresse mail valide'} 
-          etat={flash.error}
-          setShowError={(value) => setFlash({ ...flash, error: value })} 
-          />
+    //   <form onSubmit={(e)=>handleFormSubmit(e)}>
+    //     <Flash
+    //       type={'test'}
+    //       message={'Ceci est un test'}
+    //       etat={flash.test}
+    //       setShowError={(value) => setFlash({ ...flash, test: value })} 
+    //       />
+    //     <Flash 
+    //       type={'error'} 
+    //       message={'Veuillez entrer une adresse mail valide'} 
+    //       etat={flash.error}
+    //       setShowError={(value) => setFlash({ ...flash, error: value })} 
+    //       />
           
-        <Flash 
-          type={'success'} 
-          message={'Votre demande à bien été envoyé.'} 
-          etat={flash.success}
-          setShowError={(value) => setFlash({ ...flash, success: value })} 
-          />
+    //     <Flash 
+    //       type={'success'} 
+    //       message={'Votre demande à bien été envoyé.'} 
+    //       etat={flash.success}
+    //       setShowError={(value) => setFlash({ ...flash, success: value })} 
+    //       />
         
-        <div className='inputContainer'>
+    //     <div className='inputContainer'>
 
-          <label htmlFor="email" className='texte-16-sb'>
-            Votre E-mail
-          </label>
-          <input 
-            type="text" 
-            name="email" 
-            placeholder='votre@email.com'
-            className='texte-16-r'
-            ref={mailRef}
+    //       <label htmlFor="email" className='texte-16-sb'>
+    //         Votre E-mail
+    //       </label>
+    //       <input 
+    //         type="text" 
+    //         name="email" 
+    //         placeholder='votre@email.com'
+    //         className='texte-16-r'
+    //         ref={mailRef}
             
-          />
-        </div>
+    //       />
+    //     </div>
 
-        <div className='inputContainer'>
+    //     <div className='inputContainer'>
           
-          <label htmlFor="corps" className='texte-16-sb'>
-            Votre message
-          </label>
-          <textarea 
-            name="corps"  
-            cols="30" 
-            rows="10"
-            placeholder='Votre Message...'
-            className='texte-16-r'
-            ref={messageRef}
-          ></textarea>
+    //       <label htmlFor="corps" className='texte-16-sb'>
+    //         Votre message
+    //       </label>
+    //       <textarea 
+    //         name="corps"  
+    //         cols="30" 
+    //         rows="10"
+    //         placeholder='Votre Message...'
+    //         className='texte-16-r'
+    //         ref={messageRef}
+    //       ></textarea>
 
 
-        </div>
+    //     </div>
 
-        <Button
-          label={'Envoyer'}
-          type='button'
-          buttonType={'submit'}
-          className={'button button--primary titre-20-to-14'}
+    //     <Button
+    //       label={'Envoyer'}
+    //       type='button'
+    //       buttonType={'submit'}
+    //       className={'button button--primary titre-20-to-14'}
         
-        />
-      </form>
+    //     />
+    //   </form>
 
-    </section>
+    // </section>
+    <></>
   )
 }
